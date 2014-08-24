@@ -1,0 +1,31 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+ long long int n,m,h,i,s=0,ans=0;
+ vector<pair<long long int,long long int> > v(100000);
+ scanf("%lld%lld%lld",&n,&m,&h);
+ for(i=0;i<h;i++)
+ { 
+   scanf("%lld%lld",&(v[i].second),&(v[i].first));
+   s+=v[i].second;
+ } 
+ if(s>=n*m)
+ {
+  long long l=n*m,l2;
+  sort(v.begin(),v.end());
+  for(vector<pair<long long int,long long int> >::iterator it=v.begin();l>0;it++)
+  {
+   l2=l-(it->second);
+   if(l2>=0)
+    ans+=(it->first)*(it->second);
+   else
+    ans+=(it->first)*l;
+   l=l2; 
+  }
+  printf("%lld\n",ans);
+ }
+ else
+  printf("Impossible\n");   
+return 0;
+}
