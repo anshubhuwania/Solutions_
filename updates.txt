@@ -1,0 +1,3 @@
+Bruce Eckel 
+THinking in C++
+Effective C++
